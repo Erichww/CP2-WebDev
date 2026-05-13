@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrinho | Multiverso Store</title>
+  <link rel="stylesheet" href="../src/css/estilo.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">Multiverso <span>Store</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Produtos</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="loja.html">Carrinho</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CARRINHO -->
+  <main>
+    <div class="cart-wrapper">
+
+      <h1 class="cart-title fade-in">MEU <span>CARRINHO</span></h1>
+
+      <!-- Lista de itens gerada via JavaScript (DOM) -->
+      <ul class="cart-list fade-in" id="carrinhoLista"></ul>
+
+      <!-- Resumo financeiro -->
+      <div class="cart-summary fade-in">
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="totalCompra">R$ 0,00</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Frete</span>
+          <span>GRÁTIS</span>
+        </div>
+
+        <div class="summary-total">
+          <span class="label">TOTAL DA COMPRA</span>
+          <h2 id="totalFinal">R$ 0,00</h2>
+        </div>
+
+        <!-- Botão de desconto: aplica 10% via Reduce -->
+        <button class="btn-discount" id="btnDesconto">
+          🏷️ APLICAR 10% DE DESCONTO
+        </button>
+
+        <div class="discount-badge" id="discountBadge">
+          ✓ DESCONTO DE 10% APLICADO
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Multiverso <span>Store</span></div>
+    <p>&copy; 2026 &mdash; Todos os direitos reservados</p>
+  </footer>
+
+  <script src="../src/js/script.js"></script>
+</body>
+</html>
