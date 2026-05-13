@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&family=Montserrat:wght@500;600;700&display=swap');
+
+:root {
+  --primary: #1a3a5c;
+  --primary-dark: #0f2440;
+  --primary-light: #2a5080;
+  --accent: #c9923a;
+  --accent-dark: #a87530;
+  --black: #0d0d0d;
+  --dark: #141414;
+  --dark2: #1e1e1e;
+  --dark3: #252525;
+  --gray: #2e2e2e;
+  --gray-light: #666666;
+  --white: #f8f7f4;
+  --off-white: #ede9e3;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+  --font-ui: 'Montserrat', sans-serif;
+  --shadow-primary: 0 4px 24px rgba(26, 58, 92, 0.35);
+  --shadow-accent: 0 4px 20px rgba(201, 146, 58, 0.35);
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
