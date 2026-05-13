@@ -238,3 +238,58 @@ function renderizarCarrinho() {
     btnDesconto.style.opacity = '0.6';
   });
 }
+
+// ─── NOTIFICAÇÃO ─────────────────────────────────────────────────────────────
+function mostrarNotificacao(msg, tipo = 'success') {
+  const notif = document.createElement('div');
+  notif.style.cssText = `
+    position:fixed;bottom:5.5rem;right:1.5rem;z-index:9999;
+    background:${tipo === 'info' ? '#252525' : '#1a3a5c'};color:#f8f7f4;
+    font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:600;
+    letter-spacing:1.5px;padding:11px 20px;border-radius:3px;
+    border-left:3px solid #c9923a;box-shadow:0 4px 20px rgba(0,0,0,0.5);
+    animation:slideNotif 0.3s ease;pointer-events:none;
+  `;
+  notif.textContent = msg.toUpperCase();
+  if (!document.getElementById('notifStyle')) {
+    const s = document.createElement('style');
+    s.id = 'notifStyle';
+    s.textContent = `@keyframes slideNotif{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:translateX(0)}}`;
+    document.head.appendChild(s);
+  }
+  document.body.appendChild(notif);
+  setTimeout(() => notif.remove(), 2400);
+}
+
+// ─── FADE-IN SCROLL ───────────────────────────────────────────────────────────
+function observarFadeIn() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  renderizarProdutos();
+  renderizarCarrinho();
+  observarFadeIn();
+});
+
+// ─── SELECIONAR / DESSELECIONAR CARD ─────────────────────────────────────────
+function toggleSelecionarCard(card, id) {
+  const jaSelecionado = carrinho.some(item => item.id === id);
+
+  if (jaSelecionado) {
+    carrinho = carrinho.filter(item => item.id !== id);
+    card.classList.remove('selecionado');
+    mostrarNotificacao('Item removido do carrinho', 'info');
+  } else {
+    const produto = produtos.find(p => p.id === id);
+    carrinho.push({ ...produto });
+    card.classList.add('selecionado');
+    mostrarNotificacao(`${produto.name} adicionado!`, 'success');
+  }
+
+  atualizarBarraCarrinho();
+}
