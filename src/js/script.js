@@ -8,7 +8,7 @@ const produtos = [
     desc: "Action figure articulada com 32 pontos de articulação. Inclui acessórios a parte.",
     price: 599.99,
     badge: "BESTSELLER",
-    img: "../src/assets/img/miku.jpg"       // ← só o caminho relativo, sem http://
+    img: "../src/assets/img/miku.jpg"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const produtos = [
     desc: "Figura premium, Acabamento pintado à mão.",
     price: 299.99,
     badge: "NOVO",
-    img: "../src/assets/img/pochita.jpg"    // ← troque .png por .jpg se seu arquivo for .jpg
+    img: "../src/assets/img/pochita.jpg"
   },
   {
     id: 3,
